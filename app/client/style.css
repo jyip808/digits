@@ -1,0 +1,4 @@
+.cat {
+  background: url('images/cat.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
