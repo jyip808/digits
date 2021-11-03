@@ -7,7 +7,7 @@ import { Contacts } from '../../api/contacts/Contacts';
 import Contact from '../components/Contact';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class ListContacts extends React.Component {
+class ListContactsAdmin extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -28,7 +28,7 @@ class ListContacts extends React.Component {
 }
 
 // Require an array of Stuff documents in the props.
-ListContacts.propTypes = {
+ListContactsAdmin.propTypes = {
   contacts: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -36,9 +36,9 @@ ListContacts.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Contacts.userPublicationName);
+  const subscription = Meteor.subscribe(Contacts.adminPublicationName);
   return {
     contacts: Contacts.collection.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(ListContacts);
+})(ListContactsAdmin);
